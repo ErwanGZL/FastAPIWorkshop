@@ -17,7 +17,7 @@ source .venv/bin/activate
 
 ### Install the dependencies
 ```console copy
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ### Start the server
