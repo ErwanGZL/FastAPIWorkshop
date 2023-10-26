@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mmmh Jinja so good!</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', path='/favicon.ico')}}">
+</head>
+
+<body>
+    <div>
+        <form method="POST" action="/task/new">
+            <input type="text" name="task_name">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    {% for task in todolist %}
+    <div id={{task[0]}} name="task">
+        <input id={{task[0]}} name="checkbox-task" type="checkbox" {% if task[2] %}checked{% endif %}>
+        <span id={{task[0]}} name="name-task" {%if task[2] %}style="text-decoration: line-through;" {% endif %}>
+            {{task[1]}}
+        </span>
+        <button id={{task[0]}} name="delete-task-btn">Delete</button>
+    </div>
+    {% endfor %}
+
+    <script src="{{ url_for('static', path='/delete-tasks.js') }}"></script>
+    <script src="{{ url_for('static', path='/check-tasks.js') }}"></script>
+</body>
+
+</html>
